@@ -1,0 +1,10 @@
+# Key localizations
+creativetab.title.beercraft=BeerCraft
+
+# Item localizations
+item.beercraft:yeast.name=Yeast
+item.beercraft:beer_mug.name=Mug o' Beer
+item.beercraft:hops_seeds.name=Hops Seeds
+item.beercraft:hops_flower.name=Raw Hops
+item.beercraft:milled_wheat.name=Milled Wheat
+

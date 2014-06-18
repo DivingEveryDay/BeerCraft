@@ -1,0 +1,21 @@
+[
+{
+  "modid": "beercraft",
+  "name": "Beer Craft",
+  "description": "Transmute boring stuff into Beer!",
+  "version": "${mod_version}",
+  "mcversion": "${minecraft_version}",
+  "url": "http://www.divingeveryday.com/BeerCraft",
+  "updateUrl": "",
+  "authorList": [
+    "DivingEveryDay"
+  ],
+  "credits": "DivingEveryDay",
+  "logoFile": "assets/beercraft/textures/logo/logo.png",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]

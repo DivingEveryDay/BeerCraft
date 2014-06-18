@@ -9,6 +9,14 @@ buildscript {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
+        maven { // The repo from which to get waila
+            name "MobiusRepo"
+            url "http://mobiusstrip.eu/maven"
+        }
+        maven { // the repo from which to get NEI and stuff 
+            name 'CBRepo'
+            url "http://chickenbones.net/maven/"
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
@@ -18,8 +26,8 @@ buildscript {
 apply plugin: 'forge'
 
 version = "1.0"
-group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+group= "com.divingeveryday.beercraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "beercraft"
 
 minecraft {
     version = "1.7.2-10.12.2.1126"
@@ -35,6 +43,7 @@ dependencies {
     // real examples
     compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+    compile "mcp.mobius.waila:Waila:1.5.2a" // should load NEI et all.
 
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

@@ -1,4 +1,4 @@
-# Key localizations
+# Misc localizations
 creativetab.title.beercraft=BeerCraft
 
 # Item localizations
@@ -13,5 +13,9 @@ item.beercraft:milled_wheat.roasted3.name=Dark Roasted Milled Wheat
 item.beercraft:roasted_wheat.1.name=Lite Roasted Wheat
 item.beercraft:roasted_wheat.2.name=Medium Roasted Wheat
 item.beercraft:roasted_wheat.3.name=Dark Roasted Wheat
-
 item.beercraft:brew_grains.name=Brewing Grains
+
+# Block localizations
+tile.beercraft:grain_mill.name=Grain Mill
+tile.beercraft:grain_roaster_active.name=Grain Roaster
+tile.beercraft:grain_roaster_inactive.name=Grain Roaster

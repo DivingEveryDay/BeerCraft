@@ -9,15 +9,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class TileEntityGrainMill extends TileEntityBeerCraft {
-//    private HashMap     millingMap   = new HashMap();
     private static int MILLING_TIME = 60;
     private int         millingTime  = MILLING_TIME;
 
     public TileEntityGrainMill() {
         super( 2, new int[] { 0 }, new int[] { 1 }, null );
 
-//        this.millingMap.put( new ItemStack( Items.wheat, 1, 0), new ItemStack( ModItems.milledWheat, 1, 0 ) );
-//        this.millingMap.put( new ItemStack( ModItems.roastedWheat, 1, 0), new ItemStack( ModItems.milledWheat, 1, 1 ) );
     }
 
     @Override

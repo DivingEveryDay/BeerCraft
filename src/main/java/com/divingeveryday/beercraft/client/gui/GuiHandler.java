@@ -1,6 +1,8 @@
 package com.divingeveryday.beercraft.client.gui;
 
+import com.divingeveryday.beercraft.block.TileEntityGrainRoaster;
 import com.divingeveryday.beercraft.container.ContainerGrainMill;
+import com.divingeveryday.beercraft.container.ContainerGrainRoaster;
 import com.divingeveryday.beercraft.reference.GuiIDs;
 import com.divingeveryday.beercraft.tileentity.TileEntityBeerCraft;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainMill;
@@ -18,11 +20,13 @@ public class GuiHandler implements IGuiHandler {
         TileEntity tileEntity = world.getTileEntity( x, y, z );
         switch( ID ) {
             case GuiIDs.GRAIN_MILL:
-                System.out.println("GuiIDs.GRAIN_MILL");
                 if( tileEntity instanceof TileEntityGrainMill )
                     return new ContainerGrainMill( player.inventory, (TileEntityGrainMill)tileEntity );
                 break;
-               
+            case GuiIDs.GRAIN_ROASTER:
+                if( tileEntity instanceof TileEntityGrainRoaster )
+                    return new ContainerGrainRoaster( player.inventory, (TileEntityGrainRoaster)tileEntity );
+                break;
         }
         return null;
     }
@@ -33,11 +37,13 @@ public class GuiHandler implements IGuiHandler {
         TileEntity tileEntity = world.getTileEntity( x, y, z );
         switch( ID ) {
             case GuiIDs.GRAIN_MILL:
-                System.out.println("GuiIDs.GRAIN_MILL");
                 if( tileEntity instanceof TileEntityGrainMill )
                     return new GuiGrainMill( player.inventory, (TileEntityGrainMill)tileEntity );
                 break;
-               
+            case GuiIDs.GRAIN_ROASTER:
+                if( tileEntity instanceof TileEntityGrainRoaster )
+                    return new GuiGrainRoaster( player.inventory, (TileEntityGrainRoaster)tileEntity );
+                break;
         }
         return null;
     }

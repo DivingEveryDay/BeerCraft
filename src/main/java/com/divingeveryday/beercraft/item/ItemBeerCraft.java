@@ -19,13 +19,17 @@ import net.minecraft.item.ItemStack;
  */
 public abstract class ItemBeerCraft extends Item {
     private String registerName;
-    public ItemBeerCraft( String unlocalizedName, int stackSize ) {
+    public ItemBeerCraft( String unlocalizedName, int stackSize, boolean onCreativeTab ) {
         super();
         this.maxStackSize = stackSize;
-        this.setCreativeTab( CreativeTab.BEERCRAFT_TAB );
+        if( onCreativeTab )
+            this.setCreativeTab( CreativeTab.BEERCRAFT_TAB );
         this.setNoRepair();
         this.setUnlocalizedName( unlocalizedName );
         this.registerName = unlocalizedName;
+    }
+    public ItemBeerCraft( String unlocalizedName, int stackSize ) {
+        this( unlocalizedName, stackSize, true );
     }
 
     /**

@@ -3,6 +3,7 @@ package com.divingeveryday.beercraft.block;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.IInventory;
@@ -11,18 +12,20 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockCraftEntityBlock extends BlockBeerCraft {
+public abstract class BlockBeerCraftEntityBlock extends BlockBeerCraft implements ITileEntityProvider {
 
-    protected BlockCraftEntityBlock( String registerName, Material material ) {
+    protected BlockBeerCraftEntityBlock( String registerName, Material material ) {
         super( registerName, material );
-        // TODO Auto-generated constructor stub
+    }
+    protected BlockBeerCraftEntityBlock( String registerName, Material material, boolean onCreativeTab ) {
+        super( registerName, material, onCreativeTab );
     }
 
     @Override
     public void breakBlock( World world, int x, int y, int z, Block block, int meta ) {
         dropInventory( world, x, y, z );
         super.breakBlock( world, x, y, z, block, meta );
-        world.removeTileEntity(  x, y, z );
+        world.removeTileEntity( x, y, z );
     }
 
     protected void dropInventory( World world, int x, int y, int z ) {

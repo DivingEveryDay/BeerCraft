@@ -5,6 +5,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 
 import com.divingeveryday.beercraft.tileentity.TileEntityBeerCraft;
 
@@ -39,6 +40,15 @@ public class BeerCraftContainer extends Container {
     @Override
     public boolean canInteractWith( EntityPlayer player ) {
         return this.tileEntity.isUseableByPlayer( player );
+    }
+
+    /**
+     * Called when a player shift-clicks on a slot. You must override this or
+     * you will crash when someone does that.
+     */
+    @Override
+    public ItemStack transferStackInSlot( EntityPlayer player, int slotIndex ) {
+        return null; //FixMe! this needs to be implemented!
     }
 
 }

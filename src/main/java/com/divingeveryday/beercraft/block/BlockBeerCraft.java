@@ -20,13 +20,17 @@ import com.divingeveryday.beercraft.util.BlockSide;
 
 public class BlockBeerCraft extends Block {
     private String registerName;
-    protected BlockBeerCraft( String blockName, Material material ) {
+    
+    protected BlockBeerCraft( String blockName, Material material, boolean onCreativeTab ) {
         super( material );
-        this.setCreativeTab( CreativeTab.BEERCRAFT_TAB );
+        if( onCreativeTab )
+            this.setCreativeTab( CreativeTab.BEERCRAFT_TAB );
         this.setBlockName( blockName );
         this.registerName = blockName;
     }
-    
+    protected BlockBeerCraft( String blockName, Material material ) {
+        this( blockName, material, true );
+    }    
     /**
      * @return the registerName
      */

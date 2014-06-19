@@ -4,6 +4,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 import com.divingeveryday.beercraft.init.ModItems;
@@ -38,8 +39,30 @@ public class BrewingShapelessRecipe implements IRecipe {
 
     @Override
     public ItemStack getCraftingResult( InventoryCrafting inventoryCrafting ) {
+        int[] counts = new int[]{ 0,0,0,0 };
+        for( int i=0; i<9; i++ ){
+            ItemStack stack = inventoryCrafting.getStackInSlot( i );
+            if( stack == null )
+                continue;
+            Item item = stack.getItem();
+            int damage = stack.getItemDamage();
+            
+            if( item.equals( ModItems.milledWheat ) ) {
+                counts[ damage ] = counts[ damage ]+1;
+            } else if( item.equals( ModItems.brewGrains ) ) {
+                int[] extraCounts = stack.stackTagCompound.getIntArray( "ContentsCount" );
+                for( int j=0; j<4; j++ ) {
+                    counts[j] = counts[j] + extraCounts[j];
+                }
+            } else {
+                System.out.println( "How did this happen?" );
+            }
+        }
+
         ItemStack grains = new ItemStack( ModItems.brewGrains );
-        
+        NBTTagCompound stackNBT = new NBTTagCompound();
+        stackNBT.setIntArray( "ContentsCount", counts );
+        grains.stackTagCompound = stackNBT;
         return grains;
     }
 

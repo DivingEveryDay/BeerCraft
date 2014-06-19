@@ -17,29 +17,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ContainerGrainMill extends BeerCraftContainer {
 
     private int lastMillingTime;
+    
+    private final int UPDATE_MILLING_TIME = 0;
 
     public ContainerGrainMill( InventoryPlayer inventoryPlayer, TileEntityGrainMill grainMill ) {
         super( inventoryPlayer, grainMill );
 
         this.addSlotToContainer( new Slot( grainMill, 0, 54, 34 ) );
-        this.addSlotToContainer( new OutputSlot( grainMill, 1, 116, 34 ) );
-
-    }
-
-    /**
-     * Called when a player shift-clicks on a slot. You must override this or
-     * you will crash when someone does that.
-     */
-    @Override
-    public ItemStack transferStackInSlot( EntityPlayer player, int slotIndex ) {
-        return null;
-    }
-
-    @Override
-    public void addCraftingToCrafters( ICrafting par1ICrafting ) {
-        super.addCraftingToCrafters( par1ICrafting );
-        TileEntityGrainMill gm = (TileEntityGrainMill)this.tileEntity;
-        par1ICrafting.sendProgressBarUpdate( this, 0, gm.getMillingTime() );
+        this.addSlotToContainer( new OutputSlot( grainMill, 1, 116, 35 ) );
     }
 
     /**
@@ -55,7 +40,7 @@ public class ContainerGrainMill extends BeerCraftContainer {
 
             if( this.lastMillingTime != gm.getMillingTime() ) {
                 this.lastMillingTime = gm.getMillingTime();
-                icrafting.sendProgressBarUpdate( this, 0, this.lastMillingTime );
+                icrafting.sendProgressBarUpdate( this, UPDATE_MILLING_TIME, this.lastMillingTime );
             }
         }
 
@@ -63,10 +48,12 @@ public class ContainerGrainMill extends BeerCraftContainer {
 
     @SideOnly ( Side.CLIENT)
     @Override
-    public void updateProgressBar( int par1, int par2 ) {
+    public void updateProgressBar( int id, int value ) {
         TileEntityGrainMill gm = (TileEntityGrainMill)this.tileEntity;
-        if( par1 == 0 ) {
-            gm.setMillingTime( par2 );
+        switch( id ) {
+            case UPDATE_MILLING_TIME:
+                gm.setMillingTime( value );
+                break;
         }
     }
 

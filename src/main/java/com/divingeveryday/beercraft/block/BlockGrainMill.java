@@ -32,7 +32,7 @@ public class BlockGrainMill extends BlockBeerCraft implements ITileEntityProvide
     private static IIcon iconGears;
 
     public BlockGrainMill() {
-        super( Material.iron );
+        super( Names.Blocks.GRAIN_MILL, Material.iron );
 
         setHardness( 5F );
         this.setCreativeTab( CreativeTab.BEERCRAFT_TAB );

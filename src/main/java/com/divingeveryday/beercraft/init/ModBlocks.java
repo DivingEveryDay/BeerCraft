@@ -2,6 +2,7 @@ package com.divingeveryday.beercraft.init;
 
 import net.minecraft.block.Block;
 
+import com.divingeveryday.beercraft.block.BlockBeerCraft;
 import com.divingeveryday.beercraft.block.BlockGrainMill;
 import com.divingeveryday.beercraft.reference.Names;
 
@@ -14,8 +15,8 @@ public class ModBlocks {
         registerBlock( blockGrainMill );
     }
 
-    private static void registerBlock( Block block ) {
-        GameRegistry.registerBlock( block, block.getUnlocalizedName() );
+    private static void registerBlock( BlockBeerCraft block ) {
+        GameRegistry.registerBlock( block, block.getRegisterName() );
     }
 
 }

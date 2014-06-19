@@ -13,8 +13,8 @@ import net.minecraft.world.World;
 
 public class BlockCraftEntityBlock extends BlockBeerCraft {
 
-    protected BlockCraftEntityBlock( Material material ) {
-        super( material );
+    protected BlockCraftEntityBlock( String registerName, Material material ) {
+        super( registerName, material );
         // TODO Auto-generated constructor stub
     }
 

@@ -3,6 +3,7 @@ package com.divingeveryday.beercraft;
 import com.divingeveryday.beercraft.client.gui.GuiHandler;
 import com.divingeveryday.beercraft.init.ModBlocks;
 import com.divingeveryday.beercraft.init.ModItems;
+import com.divingeveryday.beercraft.init.ModRecipies;
 import com.divingeveryday.beercraft.proxy.IProxy;
 import com.divingeveryday.beercraft.reference.Reference;
 
@@ -46,6 +47,8 @@ public class BeerCraft {
         ModItems.init();
 
         ModBlocks.init();
+        
+        ModRecipies.init();
     }
 
     @EventHandler

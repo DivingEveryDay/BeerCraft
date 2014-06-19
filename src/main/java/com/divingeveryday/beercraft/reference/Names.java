@@ -5,6 +5,7 @@ public class Names {
     public static class Blocks {
     	public static final String GRAIN_MILL = "grain_mill";
     	public static final String GRAIN_ROASTER = "grain_roaster";
+        public static final String HOPS_PLANT = "hops_plant";
     }
 
     public static class Items {
@@ -13,6 +14,8 @@ public class Names {
 		public static final String HOPS_SEEDS = "hops_seeds";
 		public static final String HOPS_FLOWER = "hops_flower";
 		public static final String MILLED_WHEAT = "milled_wheat";
+        public static final String ROASTED_WHEAT = "roasted_wheat";
+        public static final String BREW_GRAINS = "brew_grains";
     }
 
     public static class NBT {

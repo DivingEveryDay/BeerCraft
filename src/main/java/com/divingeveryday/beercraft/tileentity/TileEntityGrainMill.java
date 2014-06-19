@@ -1,29 +1,23 @@
 package com.divingeveryday.beercraft.tileentity;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.divingeveryday.beercraft.init.ModItems;
 
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
-
-import net.minecraft.nbt.NBTTagCompound;
-
 public class TileEntityGrainMill extends TileEntityBeerCraft {
-    private HashMap     millingMap   = new HashMap();
+//    private HashMap     millingMap   = new HashMap();
     private static int MILLING_TIME = 60;
     private int         millingTime  = MILLING_TIME;
 
     public TileEntityGrainMill() {
         super( 2, new int[] { 0 }, new int[] { 1 }, null );
 
-        this.millingMap.put( Items.wheat, new ItemStack( ModItems.milledWheat, 1 ) );
+//        this.millingMap.put( new ItemStack( Items.wheat, 1, 0), new ItemStack( ModItems.milledWheat, 1, 0 ) );
+//        this.millingMap.put( new ItemStack( ModItems.roastedWheat, 1, 0), new ItemStack( ModItems.milledWheat, 1, 1 ) );
     }
 
     @Override
@@ -59,10 +53,18 @@ public class TileEntityGrainMill extends TileEntityBeerCraft {
     }
 
     public ItemStack getMillingResult( ItemStack sourceItemStack ) {
-        Object key = sourceItemStack.getItem();
+        Item item = sourceItemStack.getItem();
+        if( item == Items.wheat ) {
+            return new ItemStack( ModItems.milledWheat, 1, 0 );
+        }
+        if( item == ModItems.roastedWheat ) {
+            int damage = sourceItemStack.getItemDamage();
+            return new ItemStack( ModItems.milledWheat, 1, damage+1 );
+        }
+/*        Object key = sourceItemStack;//.getItem();
         if( this.millingMap.containsKey( key ) ) {
             return ((ItemStack)this.millingMap.get( key )).copy();
-        }
+        }*/
         return null;
     }
 
@@ -84,8 +86,9 @@ public class TileEntityGrainMill extends TileEntityBeerCraft {
         if( destStack == null ) {
             return true;
         }
-        if( destStack.getItem() == resultStack.getItem()
-                && destStack.stackSize + resultStack.stackSize <= this.getInventoryStackLimit() ) {
+        if( destStack.getItem() == resultStack.getItem() &&
+            destStack.getItemDamage() == resultStack.getItemDamage() &&
+                destStack.stackSize + resultStack.stackSize <= this.getInventoryStackLimit() ) {
             return true;
         }
 
@@ -114,8 +117,6 @@ public class TileEntityGrainMill extends TileEntityBeerCraft {
     @Override
     public void updateEntity() {
         boolean dirtyFlag = false;
-//        MILLING_TIME = 20;
-//        System.out.println( "updateEntity:this.millingTime = " + this.millingTime + "-" + !this.worldObj.isRemote );
 
         if( !this.worldObj.isRemote ) {
             boolean milling = this.millingTime < this.MILLING_TIME;

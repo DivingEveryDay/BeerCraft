@@ -18,37 +18,47 @@ import net.minecraft.item.ItemStack;
  * Base class for items added by BeerCraft
  */
 public abstract class ItemBeerCraft extends Item {
-
+    private String registerName;
     public ItemBeerCraft( String unlocalizedName, int stackSize ) {
         super();
         this.maxStackSize = stackSize;
         this.setCreativeTab( CreativeTab.BEERCRAFT_TAB );
         this.setNoRepair();
         this.setUnlocalizedName( unlocalizedName );
+        this.registerName = unlocalizedName;
+    }
+
+    /**
+     * @return the registerName
+     */
+    public String getRegisterName() {
+        return registerName;
     }
 
     @Override
-    public String getUnlocalizedName()
-    {
-        return String.format("item.%s%s", Textures.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    public String getUnlocalizedName() {
+        return String.format( "item.%s%s", Textures.RESOURCE_PREFIX,
+                getUnwrappedUnlocalizedName( super.getUnlocalizedName() ) );
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack itemStack)
-    {
-        return String.format("item.%s%s", Textures.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    public String getUnlocalizedName( ItemStack itemStack ) {
+        return String.format( "item.%s%s", Textures.RESOURCE_PREFIX,
+                getUnwrappedUnlocalizedName( super.getUnlocalizedName() ) );
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister)
-    {
-        itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+    @SideOnly ( Side.CLIENT)
+    public void registerIcons( IIconRegister iconRegister ) {
+        itemIcon = iconRegister.registerIcon( this.getIconName() );
     }
 
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-    {
-        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    public String getIconName() {
+        return this.getUnlocalizedName().substring( this.getUnlocalizedName().indexOf( "." ) + 1 );
     }
-    
+
+    protected String getUnwrappedUnlocalizedName( String unlocalizedName ) {
+        return unlocalizedName.substring( unlocalizedName.indexOf( "." ) + 1 );
+    }
+
 }

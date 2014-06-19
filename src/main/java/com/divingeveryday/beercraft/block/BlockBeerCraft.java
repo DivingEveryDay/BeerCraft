@@ -19,11 +19,21 @@ import com.divingeveryday.beercraft.reference.Textures;
 import com.divingeveryday.beercraft.util.BlockSide;
 
 public class BlockBeerCraft extends Block {
-
-    protected BlockBeerCraft( Material material ) {
+    private String registerName;
+    protected BlockBeerCraft( String blockName, Material material ) {
         super( material );
         this.setCreativeTab( CreativeTab.BEERCRAFT_TAB );
+        this.setBlockName( blockName );
+        this.registerName = blockName;
     }
+    
+    /**
+     * @return the registerName
+     */
+    public String getRegisterName() {
+        return registerName;
+    }
+
 
     @Override
     public String getUnlocalizedName() {

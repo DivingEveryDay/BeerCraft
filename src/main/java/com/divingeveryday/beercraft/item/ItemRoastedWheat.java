@@ -14,17 +14,16 @@ import com.divingeveryday.beercraft.reference.Names;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemMilledWheat extends ItemBeerCraft {
+public class ItemRoastedWheat extends ItemBeerCraft {
 
     private IIcon[] subTypeIcons = new IIcon[3];
-    private String[] subTypeNames = new String[]{ "roasted1", "roasted2", "roasted3" };
+    private String[] subTypeNames = new String[]{ "1", "2", "3" };
 
-    public ItemMilledWheat() {
-        super( Names.Items.MILLED_WHEAT, 64 );
+    public ItemRoastedWheat() {
+        super( Names.Items.ROASTED_WHEAT, 64 );
         this.setHasSubtypes( true );
         this.setMaxDamage( 0 );
     }
-
     @Override
     @SideOnly ( Side.CLIENT)
     public void registerIcons( IIconRegister iconRegister ) {
@@ -40,10 +39,9 @@ public class ItemMilledWheat extends ItemBeerCraft {
      */
     @SideOnly ( Side.CLIENT)
     public IIcon getIconFromDamage( int damage ) {
-        damage = MathHelper.clamp_int(damage, 0, 3);
-        if( damage == 0 )
-            return this.itemIcon;
-        return this.subTypeIcons[ damage-1 ];
+        damage = MathHelper.clamp_int(damage, 0, 2);
+        
+        return this.subTypeIcons[ damage ];
     }
 
     /**
@@ -52,10 +50,9 @@ public class ItemMilledWheat extends ItemBeerCraft {
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs tabs, List list)
     {
-        list.add(  new ItemStack( item, 1, 0  ) );
         for (int i = 0; i < this.subTypeIcons.length; ++i)
         {
-            list.add(new ItemStack(item, 1, i+1));
+            list.add(new ItemStack(item, 1, i));
         }
     }
 
@@ -65,10 +62,9 @@ public class ItemMilledWheat extends ItemBeerCraft {
      */
     public String getUnlocalizedName( ItemStack stack )
     {
-        int damage = MathHelper.clamp_int(stack.getItemDamage(), 0, 3);
-        if( damage == 0 )
-            return super.getUnlocalizedName();
-        return super.getUnlocalizedName() + "." + this.subTypeNames[damage-1];
+        int damage = MathHelper.clamp_int(stack.getItemDamage(), 0, 2);
+        return super.getUnlocalizedName() + "." + this.subTypeNames[damage];
     }
+
 
 }

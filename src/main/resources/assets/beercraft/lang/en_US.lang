@@ -7,4 +7,11 @@ item.beercraft:beer_mug.name=Mug o' Beer
 item.beercraft:hops_seeds.name=Hops Seeds
 item.beercraft:hops_flower.name=Raw Hops
 item.beercraft:milled_wheat.name=Milled Wheat
+item.beercraft:milled_wheat.roasted1.name=Lite Roasted Milled Wheat
+item.beercraft:milled_wheat.roasted2.name=Medium Roasted Milled Wheat
+item.beercraft:milled_wheat.roasted3.name=Dark Roasted Milled Wheat
+item.beercraft:roasted_wheat.1.name=Lite Roasted Wheat
+item.beercraft:roasted_wheat.2.name=Medium Roasted Wheat
+item.beercraft:roasted_wheat.3.name=Dark Roasted Wheat
 
+item.beercraft:brew_grains.name=Brewing Grains

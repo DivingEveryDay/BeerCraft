@@ -3,6 +3,7 @@ package com.divingeveryday.beercraft.block;
 import java.util.Random;
 
 import com.divingeveryday.beercraft.init.ModItems;
+import com.divingeveryday.beercraft.reference.Names;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,13 +12,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class HopsPlant extends BeerCraftBlock {
+public class HopsPlant extends BlockBeerCraft {
 
 	protected HopsPlant() {
-		super(Material.plants);
+		super( Names.Blocks.HOPS_PLANT, Material.plants);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F , 1.5F, 1.0F);
 		
 	}
+/*
 	@Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool (World world, int x,
             int y, int z) {
@@ -87,4 +89,5 @@ public class HopsPlant extends BeerCraftBlock {
     public int idPicked (World world, int x, int y, int z) {
         return Generic.tomatoSeeds.itemID;
     }
+    */
 }

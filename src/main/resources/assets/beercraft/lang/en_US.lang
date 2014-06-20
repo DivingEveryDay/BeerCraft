@@ -14,6 +14,7 @@ item.beercraft:roasted_wheat.1.name=Lite Roasted Wheat
 item.beercraft:roasted_wheat.2.name=Medium Roasted Wheat
 item.beercraft:roasted_wheat.3.name=Dark Roasted Wheat
 item.beercraft:brew_grains.name=Brewing Grains
+item.beercraft:bucket_simple_beer.name=Bucket o' Beer
 
 # Block localizations
 tile.beercraft:grain_mill.name=Grain Mill

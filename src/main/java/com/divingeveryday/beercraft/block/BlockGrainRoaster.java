@@ -5,6 +5,7 @@ import com.divingeveryday.beercraft.reference.GuiIDs;
 import com.divingeveryday.beercraft.reference.Names;
 import com.divingeveryday.beercraft.reference.Textures;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainMill;
+import com.divingeveryday.beercraft.tileentity.TileEntityGrainRoaster;
 import com.divingeveryday.beercraft.util.BlockSide;
 
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;

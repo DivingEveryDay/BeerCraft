@@ -1,8 +1,8 @@
 package com.divingeveryday.beercraft.proxy;
 
-import com.divingeveryday.beercraft.block.TileEntityGrainRoaster;
 import com.divingeveryday.beercraft.reference.Names;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainMill;
+import com.divingeveryday.beercraft.tileentity.TileEntityGrainRoaster;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

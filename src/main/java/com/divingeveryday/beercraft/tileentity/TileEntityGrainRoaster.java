@@ -1,7 +1,8 @@
-package com.divingeveryday.beercraft.block;
+package com.divingeveryday.beercraft.tileentity;
+
+import com.divingeveryday.beercraft.init.ModItems;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -11,20 +12,13 @@ import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
-import net.minecraft.item.crafting.FurnaceRecipes;
 
-import com.divingeveryday.beercraft.tileentity.TileEntityBeerCraft;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class TileEntityGrainRoaster extends TileEntityBeerCraft {
-
-    /**
-     * The ItemStacks that hold the items currently being used in the roaster
-     */
-    private ItemStack[] roasterItemStacks = new ItemStack[3];
 
     /** The number of ticks that the roaster will keep burning */
     public int          roasterBurnTimeRemaining;
@@ -36,7 +30,7 @@ public class TileEntityGrainRoaster extends TileEntityBeerCraft {
     /** The number of ticks that the current item has been cooking for */
     public int          currentItemRoastTime;
 
-    protected TileEntityGrainRoaster() {
+    public TileEntityGrainRoaster() {
         super( 3, new int[] { 0 }, new int[] { 1 }, new int[] { 2 } );
     }
 
@@ -69,7 +63,7 @@ public class TileEntityGrainRoaster extends TileEntityBeerCraft {
     }
 
     /**
-     * Furnace isBurning
+     * Roaster isRoasting
      */
     public boolean isRoasting() {
         return this.roasterBurnTimeRemaining > 0;
@@ -85,17 +79,17 @@ public class TileEntityGrainRoaster extends TileEntityBeerCraft {
 
         if( !this.worldObj.isRemote ) {
             if( this.roasterBurnTimeRemaining == 0 && this.canRoast() ) {
-                this.currentItemRoastTime = this.roasterBurnTimeRemaining = getItemBurnTime( this.roasterItemStacks[1] );
+                this.currentItemRoastTime = this.roasterBurnTimeRemaining = getItemBurnTime( this.inventoryItemStacks[1] );
 
                 if( this.roasterBurnTimeRemaining > 0 ) {
                     isDirty = true;
 
-                    if( this.roasterItemStacks[1] != null ) {
-                        --this.roasterItemStacks[1].stackSize;
+                    if( this.inventoryItemStacks[1] != null ) {
+                        --this.inventoryItemStacks[1].stackSize;
 
-                        if( this.roasterItemStacks[1].stackSize == 0 ) {
-                            this.roasterItemStacks[1] = roasterItemStacks[1].getItem().getContainerItem(
-                                    roasterItemStacks[1] );
+                        if( this.inventoryItemStacks[1].stackSize == 0 ) {
+                            this.inventoryItemStacks[1] = inventoryItemStacks[1].getItem().getContainerItem(
+                                    inventoryItemStacks[1] );
                         }
                     }
                 }
@@ -115,8 +109,7 @@ public class TileEntityGrainRoaster extends TileEntityBeerCraft {
 
             if( isRoasting != this.roasterBurnTimeRemaining > 0 ) {
                 isDirty = true;
-                BlockFurnace.updateFurnaceBlockState( this.roasterBurnTimeRemaining > 0, this.worldObj, this.xCoord,
-                        this.yCoord, this.zCoord );
+            //    BlockFurnace.updateFurnaceBlockState( this.roasterBurnTimeRemaining > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord );
             }
         }
 
@@ -126,6 +119,12 @@ public class TileEntityGrainRoaster extends TileEntityBeerCraft {
     }
 
     private static ItemStack getRoastingResult( ItemStack sourceStack ) {
+        Item item = sourceStack.getItem();
+
+        if( item.equals(  Items.wheat  ) )
+            return  new ItemStack( ModItems.roastedWheat, 1, 0 );
+        if( item.equals(  ModItems.roastedWheat  ) && sourceStack.getItemDamage() < 2 )
+            return new ItemStack( ModItems.roastedWheat, 1, sourceStack.getItemDamage() + 1 );
         return null;
     }
     /**
@@ -133,18 +132,18 @@ public class TileEntityGrainRoaster extends TileEntityBeerCraft {
      * destination stack isn't full, etc.
      */
     private boolean canRoast() {
-        if( this.roasterItemStacks[0] == null ) {
+        if( this.inventoryItemStacks[0] == null ) {
             return false;
         } else {
-            ItemStack roastResult = getRoastingResult( this.roasterItemStacks[0] );
+            ItemStack roastResult = getRoastingResult( this.inventoryItemStacks[0] );
             if( roastResult == null )
                 return false;
-            if( this.roasterItemStacks[2] == null )
+            if( this.inventoryItemStacks[2] == null )
                 return true;
-            if( !this.roasterItemStacks[2].isItemEqual( roastResult ) )
+            if( !this.inventoryItemStacks[2].isItemEqual( roastResult ) )
                 return false;
-            int result = roasterItemStacks[2].stackSize + roastResult.stackSize;
-            return result <= getInventoryStackLimit() && result <= this.roasterItemStacks[2].getMaxStackSize();
+            int result = inventoryItemStacks[2].stackSize + roastResult.stackSize;
+            return result <= getInventoryStackLimit() && result <= this.inventoryItemStacks[2].getMaxStackSize();
         }
     }
 
@@ -154,18 +153,18 @@ public class TileEntityGrainRoaster extends TileEntityBeerCraft {
      */
     public void roastItem() {
         if( this.canRoast() ) {
-            ItemStack roastResult = getRoastingResult( this.roasterItemStacks[0] );
+            ItemStack roastResult = getRoastingResult( this.inventoryItemStacks[0] );
 
-            if( this.roasterItemStacks[2] == null ) {
-                this.roasterItemStacks[2] = roastResult.copy();
-            } else if( this.roasterItemStacks[2].isItemEqual( roastResult ) ) {
-                this.roasterItemStacks[2].stackSize += roastResult.stackSize; 
+            if( this.inventoryItemStacks[2] == null ) {
+                this.inventoryItemStacks[2] = roastResult.copy();
+            } else if( this.inventoryItemStacks[2].isItemEqual( roastResult ) ) {
+                this.inventoryItemStacks[2].stackSize += roastResult.stackSize; 
             }
 
-            --this.roasterItemStacks[0].stackSize;
+            --this.inventoryItemStacks[0].stackSize;
 
-            if( this.roasterItemStacks[0].stackSize <= 0 ) {
-                this.roasterItemStacks[0] = null;
+            if( this.inventoryItemStacks[0].stackSize <= 0 ) {
+                this.inventoryItemStacks[0] = null;
             }
         }
     }

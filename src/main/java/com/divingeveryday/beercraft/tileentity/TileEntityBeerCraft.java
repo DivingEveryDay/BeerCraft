@@ -14,7 +14,7 @@ public abstract class TileEntityBeerCraft extends TileEntity implements ISidedIn
     private int[]       slotsBottom;
     private int[]       slotsSides;
 
-    private ItemStack[] inventoryItemStacks;
+    protected ItemStack[] inventoryItemStacks;
 
     protected TileEntityBeerCraft( int stacks, int[] topSlots, int[] bottomSlots, int[] sideSlots ) {
         this.inventoryItemStacks = new ItemStack[stacks];

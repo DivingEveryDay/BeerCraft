@@ -16,6 +16,7 @@ public class Names {
 		public static final String MILLED_WHEAT = "milled_wheat";
         public static final String ROASTED_WHEAT = "roasted_wheat";
         public static final String BREW_GRAINS = "brew_grains";
+        public static final String SIMPLE_BEER_BUCKET = "bucket_simple_beer";
     }
 
     public static class NBT {
@@ -25,6 +26,10 @@ public class Names {
     }
 
     public static class Keys {
+    }
+
+    public static class Fluids {
+        public static final String SIMPLE_BEER = "simple_beer";
     }
 
 }

@@ -1,11 +1,11 @@
 package com.divingeveryday.beercraft.client.gui;
 
-import com.divingeveryday.beercraft.block.TileEntityGrainRoaster;
 import com.divingeveryday.beercraft.container.ContainerGrainMill;
 import com.divingeveryday.beercraft.container.ContainerGrainRoaster;
 import com.divingeveryday.beercraft.reference.GuiIDs;
 import com.divingeveryday.beercraft.tileentity.TileEntityBeerCraft;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainMill;
+import com.divingeveryday.beercraft.tileentity.TileEntityGrainRoaster;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

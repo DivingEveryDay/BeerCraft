@@ -1,6 +1,6 @@
 package com.divingeveryday.beercraft.container;
 
-import com.divingeveryday.beercraft.block.TileEntityGrainRoaster;
+import com.divingeveryday.beercraft.tileentity.TileEntityGrainRoaster;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;

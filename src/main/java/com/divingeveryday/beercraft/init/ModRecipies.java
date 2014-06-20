@@ -2,11 +2,17 @@ package com.divingeveryday.beercraft.init;
 
 import java.util.List;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.common.MinecraftForge;
 
+import buildcraft.BuildCraftCore;
+
 import com.divingeveryday.beercraft.crafting.BrewingShapelessRecipe;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModRecipies {
     public static final BrewingShapelessRecipe recipe2 = new BrewingShapelessRecipe( 2 );
@@ -28,6 +34,16 @@ public class ModRecipies {
         recipeList.add( recipe7 );
         recipeList.add( recipe8 );
         recipeList.add( recipe9 );
+        
+        GameRegistry.addRecipe( new ItemStack(ModBlocks.blockGrainMill), new Object[]{
+                "G G",
+                "SPS",
+                "SCS",
+                'G', BuildCraftCore.ironGearItem,
+                'P', Blocks.piston,
+                'C', Blocks.chest,
+                'S', Blocks.stone_slab
+        });
     }
 
 }

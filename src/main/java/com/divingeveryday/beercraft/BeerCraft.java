@@ -49,9 +49,10 @@ public class BeerCraft {
 
         ModBlocks.init();
         
-        ModRecipies.init();
-        
         ModFluids.init();
+
+//        ModRecipies.init();
+        
     }
 
     @EventHandler
@@ -76,6 +77,7 @@ public class BeerCraft {
 
     @EventHandler
     public void postInit( FMLPostInitializationEvent event ) {
+        ModRecipies.init();
 
     }
 

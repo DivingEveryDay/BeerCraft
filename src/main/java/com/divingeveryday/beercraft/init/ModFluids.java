@@ -9,6 +9,7 @@ import com.divingeveryday.beercraft.block.BlockFluidSimpleBeer;
 import com.divingeveryday.beercraft.fluid.FluidBeerCraft;
 import com.divingeveryday.beercraft.fluid.FluidSimpleBeer;
 import com.divingeveryday.beercraft.item.ItemBeerCraftBucket;
+import com.divingeveryday.beercraft.item.ItemSimpleBeerBucket;
 import com.divingeveryday.beercraft.reference.Names;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -23,10 +24,11 @@ public class ModFluids {
         FluidRegistry.registerFluid( simpleBeer );
         simpleBeerBlock = new BlockFluidSimpleBeer( simpleBeer );
         GameRegistry.registerBlock( simpleBeerBlock, simpleBeerBlock.getRegisterName() );
-        simpleBeerBucket = new ItemBeerCraftBucket( Names.Items.SIMPLE_BEER_BUCKET, simpleBeerBlock );
+        simpleBeerBucket = new ItemSimpleBeerBucket( simpleBeerBlock );
         GameRegistry.registerItem( simpleBeerBucket, simpleBeerBucket.getRegisterName() );
         BucketHandler.INSTANCE.buckets.put( simpleBeerBlock, simpleBeerBucket );
+        
+        
     }
-
 
 }

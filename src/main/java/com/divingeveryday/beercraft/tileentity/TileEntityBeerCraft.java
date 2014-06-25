@@ -8,6 +8,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
+/* don't forget to register your TileEntity in com.divingeveryday.beercraft.proxy.CommonProxy.registerTileEntities() 
+ * 
+ */
 public abstract class TileEntityBeerCraft extends TileEntity implements ISidedInventory {
 
     private int[]       slotsTop;

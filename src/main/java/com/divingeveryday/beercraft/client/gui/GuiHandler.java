@@ -1,9 +1,11 @@
 package com.divingeveryday.beercraft.client.gui;
 
+import com.divingeveryday.beercraft.container.ContainerBurner;
 import com.divingeveryday.beercraft.container.ContainerGrainMill;
 import com.divingeveryday.beercraft.container.ContainerGrainRoaster;
 import com.divingeveryday.beercraft.reference.GuiIDs;
 import com.divingeveryday.beercraft.tileentity.TileEntityBeerCraft;
+import com.divingeveryday.beercraft.tileentity.TileEntityBurner;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainMill;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainRoaster;
 
@@ -27,6 +29,9 @@ public class GuiHandler implements IGuiHandler {
                 if( tileEntity instanceof TileEntityGrainRoaster )
                     return new ContainerGrainRoaster( player.inventory, (TileEntityGrainRoaster)tileEntity );
                 break;
+            case GuiIDs.BURNER:
+                if( tileEntity instanceof TileEntityBurner )
+                    return new ContainerBurner( player.inventory, (TileEntityBurner)tileEntity );
         }
         return null;
     }
@@ -44,6 +49,9 @@ public class GuiHandler implements IGuiHandler {
                 if( tileEntity instanceof TileEntityGrainRoaster )
                     return new GuiGrainRoaster( player.inventory, (TileEntityGrainRoaster)tileEntity );
                 break;
+            case GuiIDs.BURNER:
+                if( tileEntity instanceof TileEntityBurner )
+                    return new GuiBurner( player.inventory, (TileEntityBurner)tileEntity );
         }
         return null;
     }

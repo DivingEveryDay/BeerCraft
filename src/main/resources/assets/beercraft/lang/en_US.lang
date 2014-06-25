@@ -20,3 +20,5 @@ item.beercraft:bucket_simple_beer.name=Bucket o' Beer
 tile.beercraft:grain_mill.name=Grain Mill
 tile.beercraft:grain_roaster_active.name=Grain Roaster
 tile.beercraft:grain_roaster_inactive.name=Grain Roaster
+tile.beercraft:burner_active.name=Burner
+tile.beercraft:burner_inactive.name=Burner

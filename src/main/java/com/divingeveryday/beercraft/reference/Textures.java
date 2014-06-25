@@ -17,6 +17,8 @@ public class Textures {
 
     public static final ResourceLocation GUI_GRAIN_ROASTER      = guiSheetResource( "grain_roaster.png" );
 
+    public static final ResourceLocation GUI_BURNER = guiSheetResource( "burner.png" );
+
     private static ResourceLocation resource( String path ) {
         return new ResourceLocation( Reference.MOD_ID, path );
     }

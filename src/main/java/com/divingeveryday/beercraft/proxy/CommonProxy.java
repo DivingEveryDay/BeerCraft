@@ -1,6 +1,7 @@
 package com.divingeveryday.beercraft.proxy;
 
 import com.divingeveryday.beercraft.reference.Names;
+import com.divingeveryday.beercraft.tileentity.TileEntityBurner;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainMill;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainRoaster;
 
@@ -12,6 +13,7 @@ public class CommonProxy implements IProxy {
     public void registerTileEntities() {
         GameRegistry.registerTileEntity( TileEntityGrainMill.class, "tile." + Names.Blocks.GRAIN_MILL );
         GameRegistry.registerTileEntity( TileEntityGrainRoaster.class, "tile." + Names.Blocks.GRAIN_ROASTER );
+        GameRegistry.registerTileEntity( TileEntityBurner.class, "tile." + Names.Blocks.BURNER );
     }
 
     @Override

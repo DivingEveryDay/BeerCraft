@@ -33,9 +33,6 @@ public class BlockGrainMill extends BlockBeerCraftEntityBlock {
 
     public BlockGrainMill() {
         super( Names.Blocks.GRAIN_MILL, Material.iron );
-
-        setHardness( 5F );
-        this.setCreativeTab( CreativeTab.BEERCRAFT_TAB );
     }
 
     @Override

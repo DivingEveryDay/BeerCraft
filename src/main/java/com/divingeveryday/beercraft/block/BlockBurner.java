@@ -27,7 +27,7 @@ public class BlockBurner extends BlockBeerCraftEntityBlock {
     private final boolean isActive;
     private IIcon  iconTopBottom;
     private IIcon  iconSide;
-    private static boolean WhatIsThisUsedFor;
+    private static boolean WhatIsThisUsedFor; // used in updateXXBlockState from BlockFurnace
 
     public BlockBurner( boolean isActive ) {
         super( Names.Blocks.BURNER + (isActive ? "_active" : "_inactive"), Material.iron, !isActive );

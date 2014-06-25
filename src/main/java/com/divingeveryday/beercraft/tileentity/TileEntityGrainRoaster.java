@@ -1,5 +1,6 @@
 package com.divingeveryday.beercraft.tileentity;
 
+import com.divingeveryday.beercraft.block.BlockGrainRoaster;
 import com.divingeveryday.beercraft.init.ModItems;
 
 import net.minecraft.block.Block;
@@ -109,7 +110,7 @@ public class TileEntityGrainRoaster extends TileEntityBeerCraft {
 
             if( isRoasting != this.roasterBurnTimeRemaining > 0 ) {
                 isDirty = true;
-            //    BlockFurnace.updateFurnaceBlockState( this.roasterBurnTimeRemaining > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord );
+                BlockGrainRoaster.updateGrainRoasterBlockState( this.roasterBurnTimeRemaining > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord );
             }
         }
 

@@ -10,7 +10,7 @@ public class ContainerKettle extends BeerCraftContainer {
     public ContainerKettle( InventoryPlayer inventoryPlayer, TileEntitySingleTank kettle ) {
         super( inventoryPlayer, kettle );
 
-        this.addSlotToContainer( new Slot( kettle, 0, 56, 53 ) );
+//        this.addSlotToContainer( new Slot( kettle, 0, 56, 53 ) );
     }
 
 }

@@ -21,6 +21,10 @@ public class Textures {
 
     public static final ResourceLocation GUI_KETTLE = guiSheetResource( "kettle.png" );
 
+    public static final ResourceLocation GUI_MASH_TUN = guiSheetResource( "mash_tun.png" );
+
+    public static final ResourceLocation GUI_FERMENTER = guiSheetResource( "fermenter.png" );
+
     private static ResourceLocation resource( String path ) {
         return new ResourceLocation( Reference.MOD_ID, path );
     }

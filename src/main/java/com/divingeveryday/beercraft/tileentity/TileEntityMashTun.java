@@ -4,26 +4,28 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 
-public class TileEntityKettle extends TileEntitySingleTank {
-    public static final int TankCapacity = FluidContainerRegistry.BUCKET_VOLUME * 5;
+public class TileEntityMashTun extends TileEntitySingleTank {
+    public static final int TankCapacity = FluidContainerRegistry.BUCKET_VOLUME * 6;
     
-    public TileEntityKettle() {
-        super( 6, null, null, null, TankCapacity );
+    public TileEntityMashTun() {
+        super( 2, null, null, null, TankCapacity );
     }
 
     @Override
     public String getInventoryName() {
-        return "machine.kettle";
+        return "machine.mash_tun";
     }
 
     @Override
     public boolean canFill( ForgeDirection from, Fluid fluid ) {
-        return true;
+        // TODO Auto-generated method stub
+        return false;
     }
 
     @Override
     public boolean canDrain( ForgeDirection from, Fluid fluid ) {
-        return true;
+        // TODO Auto-generated method stub
+        return false;
     }
 
 }

@@ -23,3 +23,5 @@ tile.beercraft:grain_roaster_inactive.name=Grain Roaster
 tile.beercraft:burner_active.name=Burner
 tile.beercraft:burner_inactive.name=Burner
 tile.beercraft:kettle.name=Kettle
+tile.beercraft:mash_tun.name=Mash Tun
+tile.beercraft:fermenter.name=Fermenter

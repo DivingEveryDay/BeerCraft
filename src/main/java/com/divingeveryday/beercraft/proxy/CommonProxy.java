@@ -2,9 +2,11 @@ package com.divingeveryday.beercraft.proxy;
 
 import com.divingeveryday.beercraft.reference.Names;
 import com.divingeveryday.beercraft.tileentity.TileEntityBurner;
+import com.divingeveryday.beercraft.tileentity.TileEntityFermenter;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainMill;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainRoaster;
 import com.divingeveryday.beercraft.tileentity.TileEntityKettle;
+import com.divingeveryday.beercraft.tileentity.TileEntityMashTun;
 import com.divingeveryday.beercraft.tileentity.TileEntitySingleTank;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -17,6 +19,8 @@ public class CommonProxy implements IProxy {
         GameRegistry.registerTileEntity( TileEntityGrainRoaster.class, "tile." + Names.Blocks.GRAIN_ROASTER );
         GameRegistry.registerTileEntity( TileEntityBurner.class, "tile." + Names.Blocks.BURNER );
         GameRegistry.registerTileEntity( TileEntityKettle.class, "tile." + Names.Blocks.KETTLE );
+        GameRegistry.registerTileEntity( TileEntityMashTun.class, "tile." + Names.Blocks.MASH_TUN );
+        GameRegistry.registerTileEntity( TileEntityFermenter.class, "tile." + Names.Blocks.FERMENTER );
         
     }
 

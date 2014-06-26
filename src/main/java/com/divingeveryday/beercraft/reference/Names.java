@@ -8,6 +8,8 @@ public class Names {
         public static final String HOPS_PLANT = "hops_plant";
         public static final String BURNER = "burner";
         public static final String KETTLE = "kettle";
+        public static final String MASH_TUN = "mash_tun";
+        public static final String FERMENTER = "fermenter";
     }
 
     public static class Items {

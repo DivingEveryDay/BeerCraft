@@ -19,6 +19,8 @@ public class Textures {
 
     public static final ResourceLocation GUI_BURNER = guiSheetResource( "burner.png" );
 
+    public static final ResourceLocation GUI_KETTLE = guiSheetResource( "kettle.png" );
+
     private static ResourceLocation resource( String path ) {
         return new ResourceLocation( Reference.MOD_ID, path );
     }

@@ -14,10 +14,10 @@ import net.minecraft.world.World;
 
 public abstract class BlockBeerCraftEntityBlock extends BlockBeerCraft implements ITileEntityProvider {
 
-    protected BlockBeerCraftEntityBlock( String registerName, Material material ) {
+    public BlockBeerCraftEntityBlock( String registerName, Material material ) {
         super( registerName, material );
     }
-    protected BlockBeerCraftEntityBlock( String registerName, Material material, boolean onCreativeTab ) {
+    public BlockBeerCraftEntityBlock( String registerName, Material material, boolean onCreativeTab ) {
         super( registerName, material, onCreativeTab );
     }
 

@@ -7,6 +7,7 @@ public class Names {
     	public static final String GRAIN_ROASTER = "grain_roaster";
         public static final String HOPS_PLANT = "hops_plant";
         public static final String BURNER = "burner";
+        public static final String KETTLE = "kettle";
     }
 
     public static class Items {

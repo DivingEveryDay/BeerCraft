@@ -22,3 +22,4 @@ tile.beercraft:grain_roaster_active.name=Grain Roaster
 tile.beercraft:grain_roaster_inactive.name=Grain Roaster
 tile.beercraft:burner_active.name=Burner
 tile.beercraft:burner_inactive.name=Burner
+tile.beercraft:kettle.name=Kettle

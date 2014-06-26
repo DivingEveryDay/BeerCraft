@@ -3,11 +3,13 @@ package com.divingeveryday.beercraft.client.gui;
 import com.divingeveryday.beercraft.container.ContainerBurner;
 import com.divingeveryday.beercraft.container.ContainerGrainMill;
 import com.divingeveryday.beercraft.container.ContainerGrainRoaster;
+import com.divingeveryday.beercraft.container.ContainerKettle;
 import com.divingeveryday.beercraft.reference.GuiIDs;
 import com.divingeveryday.beercraft.tileentity.TileEntityBeerCraft;
 import com.divingeveryday.beercraft.tileentity.TileEntityBurner;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainMill;
 import com.divingeveryday.beercraft.tileentity.TileEntityGrainRoaster;
+import com.divingeveryday.beercraft.tileentity.TileEntitySingleTank;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -32,6 +34,9 @@ public class GuiHandler implements IGuiHandler {
             case GuiIDs.BURNER:
                 if( tileEntity instanceof TileEntityBurner )
                     return new ContainerBurner( player.inventory, (TileEntityBurner)tileEntity );
+            case GuiIDs.KETTLE:
+                if( tileEntity instanceof TileEntitySingleTank )
+                    return new ContainerKettle( player.inventory, (TileEntitySingleTank)tileEntity );
         }
         return null;
     }
@@ -52,6 +57,9 @@ public class GuiHandler implements IGuiHandler {
             case GuiIDs.BURNER:
                 if( tileEntity instanceof TileEntityBurner )
                     return new GuiBurner( player.inventory, (TileEntityBurner)tileEntity );
+            case GuiIDs.KETTLE:
+                if( tileEntity instanceof TileEntitySingleTank )
+                    return new GuiKettle( player.inventory, (TileEntitySingleTank)tileEntity );
         }
         return null;
     }

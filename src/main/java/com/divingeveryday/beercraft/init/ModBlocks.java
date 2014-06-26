@@ -4,6 +4,7 @@ import com.divingeveryday.beercraft.block.BlockBeerCraft;
 import com.divingeveryday.beercraft.block.BlockBurner;
 import com.divingeveryday.beercraft.block.BlockGrainMill;
 import com.divingeveryday.beercraft.block.BlockGrainRoaster;
+import com.divingeveryday.beercraft.block.BlockKettle;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -13,6 +14,7 @@ public class ModBlocks {
     public static final BlockBeerCraft blockGrainRoasterInactive = new BlockGrainRoaster( false );
     public static final BlockBeerCraft blockBurnerActive = new BlockBurner( true );
     public static final BlockBeerCraft blockBurnerInactive = new BlockBurner( false );
+    public static final BlockBeerCraft blockKettle = new BlockKettle();
 
     public static void init() {
         registerBlock( blockGrainMill );
@@ -20,6 +22,7 @@ public class ModBlocks {
         registerBlock( blockGrainRoasterInactive );
         registerBlock( blockBurnerActive );
         registerBlock( blockBurnerInactive );
+        registerBlock( blockKettle );
     }
 
     private static void registerBlock( BlockBeerCraft block ) {

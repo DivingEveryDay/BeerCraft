@@ -56,7 +56,6 @@ public class BlockBurner extends BlockBeerCraftEntityBlock {
     @Override
     @SideOnly ( Side.CLIENT)
     public void registerBlockIcons( IIconRegister r ) {
-        System.out.println( "registerBlockIcons( isActive=" + this.isActive + " )" );
         this.iconTopBottom = r.registerIcon( Textures.RESOURCE_PREFIX + "burner_top" );
         this.iconSide = r.registerIcon( Textures.RESOURCE_PREFIX + "burner_side_"
                 + (this.isActive ? "active" : "inactive") );
